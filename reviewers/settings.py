@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from telnetlib import AUTHENTICATION
+from dotenv import dotenv_values
+
+config = dotenv_values(".env")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +41,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    "rest_framework",
+    "django_filters",
+    "ckeditor",
+    "ckeditor_uploader",
+    'djoser',
+    'rest_framework.authtoken',
+    'django_q',
+    'nested_admin',
+
+    "news",
+    "prediction",
+    "tradesData",
 ]
 
 MIDDLEWARE = [
@@ -74,9 +91,14 @@ WSGI_APPLICATION = 'reviewers.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": config["DB_NAME"],
+        "USER": config["DB_USERNAME"],
+        "PASSWORD": config["DB_PASSWORD"],
+        "PORT": config["DB_PORT"],
+        "HOST": config["DB_HOST"],
+        "DISABLE_SERVER_SIDE_CURSORS": True,
     }
 }
 
@@ -99,6 +121,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+'''
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'auth.backends.CustomTokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated', )
+}
+'''
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -121,3 +152,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+MINT_AUTHORITIES = ['2WB9oJV1se6xX1bfL67FWWKQfwtGTwSemWMFAJdVueEo']
+BINANCE_API = 'https://testnet.binancefuture.com/fapi/v1/klines?'
+SOLSCAN_API_HOLDERS = 'https://public-api.solscan.io/token/meta?tokenAddress='
+SOLSCAN_API = 'https://api.solscan.io/account?address='
+CREATOR = 'DywvRGQzikkTfgakuh76WGKru7FWHX3HnFgS1CUGzGQt'

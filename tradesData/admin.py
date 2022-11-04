@@ -1,3 +1,7 @@
 from django.contrib import admin
+from tradesData import models
 
-# Register your models here.
+
+@admin.register(models.Kline)
+class KlineAdmin(admin.ModelAdmin):
+    inlines = []
