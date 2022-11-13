@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-l%tqhnayeasq6ah@g=kj5f&q%57@ac_szs)8b+s)6z@tq&(9bv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -57,16 +57,22 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'reviewers.urls'
+
+CORS_ALLOWED_ORIGINS=[
+  "https://127.0.0.1:8080",
+  "https://0.0.0.0:8080",
+]
+CORS_ALLOW_ALL_ORIGINS=True
 
 TEMPLATES = [
     {
@@ -121,16 +127,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-'''
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'auth.backends.CustomTokenAuthentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated', )
-}
-'''
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -159,4 +155,7 @@ MINT_AUTHORITIES = ['2WB9oJV1se6xX1bfL67FWWKQfwtGTwSemWMFAJdVueEo']
 BINANCE_API = 'https://testnet.binancefuture.com/fapi/v1/klines?'
 SOLSCAN_API_HOLDERS = 'https://public-api.solscan.io/token/meta?tokenAddress='
 SOLSCAN_API = 'https://api.solscan.io/account?address='
+SOLSCAN_API_TOKENS = 'https://api.solscan.io/account/v2/tokens?address=DywvRGQzikkTfgakuh76WGKru7FWHX3HnFgS1CUGzGQt'
+TOKEN_SYMBOL = 'Rev'
+TOKEN_NAME = 'Reviewers #88'
 CREATOR = 'DywvRGQzikkTfgakuh76WGKru7FWHX3HnFgS1CUGzGQt'
