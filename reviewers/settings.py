@@ -62,17 +62,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'reviewers.urls'
-
-CORS_ALLOWED_ORIGINS=[
-  "https://127.0.0.1:8080",
-  "https://0.0.0.0:8080",
-]
-CORS_ALLOW_ALL_ORIGINS=True
 
 TEMPLATES = [
     {
