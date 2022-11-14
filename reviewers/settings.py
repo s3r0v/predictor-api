@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_q',
     'nested_admin',
+    'corsheaders',
 
     "news",
     "prediction",
@@ -63,13 +64,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'reviewers.urls'
 CSRF_TRUSTED_ORIGINS = ['https://sea-lion-app-y7z7y.ondigitalocean.app']
 
 CORS_ALLOWED_ORIGINS=["*"]
-
 CORS_ALLOW_ALL_ORIGINS=True
 
 TEMPLATES = [
