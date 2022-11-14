@@ -68,6 +68,14 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'reviewers.urls'
 CSRF_TRUSTED_ORIGINS = ['https://sea-lion-app-y7z7y.ondigitalocean.app']
 
+CORS_ALLOWED_ORIGINS=[
+    "https://127.0.0.1:8080",
+    "https://0.0.0.0:8080",
+    "https://sea-lion-app-y7z7y.ondigitalocean.app",
+]
+
+CORS_ALLOW_ALL_ORIGINS=True
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
