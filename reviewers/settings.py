@@ -66,6 +66,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'reviewers.urls'
+CSRF_TRUSTED_ORIGINS = ['https://sea-lion-app-y7z7y.ondigitalocean.app']
 
 TEMPLATES = [
     {
