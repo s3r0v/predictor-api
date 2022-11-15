@@ -49,7 +49,7 @@ class Model(object):
         self.model.add(Dense(units=1))
 
         self.model.compile(optimizer='adam', loss='mean_squared_error')
-        self.model.fit(X_train, y_train, epochs=500, batch_size=32)
+        self.model.fit(X_train, y_train, epochs=1000, batch_size=32)
 
     def predict(self):
         df_volume = np.vstack((self.train, self.test))

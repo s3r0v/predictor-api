@@ -63,14 +63,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'reviewers.urls'
 CSRF_TRUSTED_ORIGINS = ['https://sea-lion-app-y7z7y.ondigitalocean.app']
 
-CORS_ALLOWED_ORIGINS=["*"]
 CORS_ALLOW_ALL_ORIGINS=True
 
 TEMPLATES = [
