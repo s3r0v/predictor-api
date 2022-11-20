@@ -7,7 +7,7 @@ from utils.stuff import PrintException
 
 class VerifyRequest(permissions.BasePermission):
     def _checkTime(self, timestamp):
-        if int(timestamp) + 300 < time.time():
+        if int(timestamp) + 60000 < time.time():
             return False
         return True
 
