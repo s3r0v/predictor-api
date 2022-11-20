@@ -153,7 +153,7 @@ MINT_AUTHORITIES = ['2WB9oJV1se6xX1bfL67FWWKQfwtGTwSemWMFAJdVueEo']
 BINANCE_API = 'https://testnet.binancefuture.com/fapi/v1/klines?'
 SOLSCAN_API_HOLDERS = 'https://public-api.solscan.io/token/meta?tokenAddress='
 SOLSCAN_API = 'https://api.solscan.io/account?address='
-SOLSCAN_API_TOKENS = 'https://api.solscan.io/account/v2/tokens?address=DywvRGQzikkTfgakuh76WGKru7FWHX3HnFgS1CUGzGQt'
+SOLSCAN_API_TOKENS = 'https://api.solscan.io/account/v2/tokens?address='
 TOKEN_SYMBOL = 'Rev'
 TOKEN_NAME = 'Reviewers #88'
 CREATOR = 'DywvRGQzikkTfgakuh76WGKru7FWHX3HnFgS1CUGzGQt'

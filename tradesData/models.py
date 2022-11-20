@@ -91,4 +91,3 @@ class KlineReceiver:
 def trigger():
     klineReceiver = KlineReceiver()
     klineReceiver.trigger()
-

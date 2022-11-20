@@ -49,7 +49,7 @@ class Model(object):
         self.model.add(Dense(units=1))
 
         self.model.compile(optimizer='adam', loss='mean_squared_error')
-        self.model.fit(X_train, y_train, epochs=1000, batch_size=32)
+        self.model.fit(X_train, y_train, epochs=10, batch_size=32)
 
     def predict(self):
         df_volume = np.vstack((self.train, self.test))
@@ -80,7 +80,6 @@ class Model(object):
 
         for j in range(20):
             last_date += pd.Timedelta(1, 'd')
-            print(last_date, type(last_date))
 
             df_ = np.vstack((df_copy, pred_))
             train_ = df_[:self.num_shape]
