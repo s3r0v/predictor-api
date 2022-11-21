@@ -5,10 +5,11 @@ from reviewers.settings import SOLSCAN_API, CREATOR, SOLSCAN_API_TOKENS
 import time, base58, requests, json
 from utils.stuff import PrintException
 
+
 class VerifyRequest(permissions.BasePermission):
     def _checkTime(self, timestamp):
-        print(int(timestamp)+60000, time.time(), int(timestamp) + 60000 < time.time())
-        if int(timestamp) + 60000 < time.time():
+        print(int(timestamp) + 60000, time.time(), int(timestamp) + 60000 < time.time())
+        if int(timestamp) + 60000 < int(time.time()):
             return False
         return True
 
@@ -44,6 +45,7 @@ class VerifyRequest(permissions.BasePermission):
         return False
 
     def has_permission(self, request, view):
+        print("AAA")
         signature = request.GET.get('signature')
         timestamp = request.GET.get('timestamp')
         publicKey = request.GET.get('publicKey')
@@ -60,4 +62,3 @@ class VerifyRequest(permissions.BasePermission):
             PrintException()
             print(e)
             return False
-
