@@ -8,13 +8,11 @@ from utils.stuff import PrintException
 
 class VerifyRequest(permissions.BasePermission):
     def _checkTime(self, timestamp):
-        print(int(timestamp) + 60000, time.time(), int(timestamp) + 60000 < time.time())
         if int(timestamp) + 60000 < int(time.time()):
             return False
         return True
 
     def _checkSignature(self, signature, timestamp, publicKey):
-        print(4)
         pubkey = bytes(PublicKey(publicKey))
         msg = bytes(str(timestamp), 'utf8')
 
@@ -24,12 +22,9 @@ class VerifyRequest(permissions.BasePermission):
             smessage=msg,
             signature=base58.b58decode(signature)
         )
-        print(5)
-        print(result)
         return result
 
     def _checkNFT(self, publicKey):
-        print(2)
         tokens = json.loads(requests.get(SOLSCAN_API_TOKENS + publicKey).text)['data']
         tokenAddress = [token['tokenAddress'] for token in tokens if token['tokenSymbol'] == 'Rev']
         tokenAddress = tokenAddress[0]
@@ -39,18 +34,15 @@ class VerifyRequest(permissions.BasePermission):
 
         # isActive = json.loads(requests.get(metadataLink).text)['']
         # TODO: isActive
-        print(3)
+
         if CREATOR in creators:
             return True
         return False
 
     def has_permission(self, request, view):
-        print("AAA")
         signature = request.GET.get('signature')
         timestamp = request.GET.get('timestamp')
         publicKey = request.GET.get('publicKey')
-
-        print(1)
 
         try:
             if self._checkNFT(publicKey) and self._checkSignature(signature, timestamp,
