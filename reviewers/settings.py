@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    "django_extensions",
     "rest_framework",
     "django_filters",
     "ckeditor",
@@ -68,7 +68,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'reviewers.urls'
-CSRF_TRUSTED_ORIGINS = ['https://sea-lion-app-y7z7y.ondigitalocean.app']
+CSRF_TRUSTED_ORIGINS = ['https://reviewers.tech']
 
 CORS_ALLOW_ALL_ORIGINS=True
 
